@@ -12,8 +12,8 @@ public class PlayerClock : MonoBehaviour, ICount
     
     public void Tick()
     {
-        clockHand.transform.rotation = Quaternion.AngleAxis(6*ticks , Vector3.back);
         ticks++;
+        clockHand.transform.rotation = Quaternion.AngleAxis(6*ticks , Vector3.back);
     }
 
     public void EndOfCount()

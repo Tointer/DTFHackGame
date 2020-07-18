@@ -7,9 +7,11 @@ public class CameraController : MonoBehaviour
     private new Camera camera;
     public float zoomOutSpeed = 0.025f;
     public float forwardZoomOutSpeed = 0.25f;
-
+    public Transform screenBoundaries;
+    
     private Transform playerClock;
     private float startingSize;
+    
 
     void Start()
     {
@@ -35,5 +37,6 @@ public class CameraController : MonoBehaviour
     {
         camera.orthographicSize += value * Time.deltaTime;
         playerClock.localScale = new Vector3(camera.orthographicSize/startingSize, camera.orthographicSize/startingSize, 0);
+        screenBoundaries.localScale = new Vector3(camera.orthographicSize/startingSize, camera.orthographicSize/startingSize, 0);
     }
 }
