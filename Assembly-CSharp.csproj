@@ -50,22 +50,25 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\TimeMeleeEnemy.cs" />
-     <Compile Include="Assets\EscapeZone.cs" />
-     <Compile Include="Assets\ICount.cs" />
+     <Compile Include="Assets\Scripts\TimeMeleeEnemy.cs" />
+     <Compile Include="Assets\Scripts\EscapeZone.cs" />
+     <Compile Include="Assets\Scripts\ICount.cs" />
      <Compile Include="Assets\GameManager.cs" />
-     <Compile Include="Assets\TimeEnemyShoot.cs" />
-     <Compile Include="Assets\EnemyBullet.cs" />
-     <Compile Include="Assets\DangerZone.cs" />
-     <Compile Include="Assets\MeleeEnemy.cs" />
-     <Compile Include="Assets\CameraController.cs" />
-     <Compile Include="Assets\PlayerController.cs" />
-     <Compile Include="Assets\PauseUI.cs" />
-     <Compile Include="Assets\AudioManager.cs" />
-     <Compile Include="Assets\PlayerClock.cs" />
-     <Compile Include="Assets\TimeEnemyBullet.cs" />
-     <Compile Include="Assets\SimpleEnemy.cs" />
-     <Compile Include="Assets\Counter.cs" />
+     <Compile Include="Assets\Scripts\TimeEnemyShoot.cs" />
+     <Compile Include="Assets\Scripts\EnemyBullet.cs" />
+     <Compile Include="Assets\Scripts\DangerZone.cs" />
+     <Compile Include="Assets\Scripts\MeleeEnemy.cs" />
+     <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\PauseUI.cs" />
+     <Compile Include="Assets\Scripts\AudioManager.cs" />
+     <Compile Include="Assets\Scripts\PlayerClock.cs" />
+     <Compile Include="Assets\Scripts\TimeEnemyBullet.cs" />
+     <Compile Include="Assets\Scripts\SimpleEnemy.cs" />
+     <Compile Include="Assets\Scripts\Counter.cs" />
+     <Compile Include="Assets\Scripts\AccelerateZone.cs" />
+     <Compile Include="Assets\StartScreenClock.cs" />
+     <Compile Include="Assets\StartScreen.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Unity/Projects/60-360/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
