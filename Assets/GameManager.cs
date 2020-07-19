@@ -12,10 +12,12 @@ public class GameManager : MonoBehaviour, ICount
     public static GameManager Instance;
     public PauseUI pauseUi;
     public bool endGame;
+    public AudioManager audioManager;
 
     public static bool IsFastForwarding;
     public event Action StartFastForward;
     public event Action StopFastForward;
+    
 
 
     private void Update()
@@ -77,6 +79,7 @@ public class GameManager : MonoBehaviour, ICount
         {
             yield return null;
         }
+        audioManager.PlaySound(AudioManager.Sounds.LevelStart);
         UnpauseGame();
     }
     
@@ -84,12 +87,15 @@ public class GameManager : MonoBehaviour, ICount
     {
         endGame = true;
         PauseGame(PauseUI.MenuStates.Win);
+        audioManager.PlaySound(AudioManager.Sounds.Succes);
     }
 
     public void PlayerLoose()
     {
+        audioManager.MuteSoundtrack();
         endGame = true;
         PauseGame(PauseUI.MenuStates.Lose);
+        audioManager.PlaySound(AudioManager.Sounds.GameOver);
     }
 
     public void OnMenuButton()
@@ -122,7 +128,6 @@ public class GameManager : MonoBehaviour, ICount
 
     public void EndOfCount()
     {
-        endGame = true;
-        PauseGame(PauseUI.MenuStates.Lose);
+        PlayerLoose();
     }
 }

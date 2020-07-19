@@ -6,6 +6,7 @@ public class TimeEnemyShoot : MonoBehaviour
 {
     public float shootCooldown = 3f;
     public float bulletSpeed = 1f;
+    public AudioSource shootSound;
     
     public GameObject bulletObject;
     private GameObject playerObject;
@@ -23,6 +24,7 @@ public class TimeEnemyShoot : MonoBehaviour
 
     IEnumerator ShootCycle()
     {
+        yield return new WaitForSeconds(0.1f);
         Shoot();
         var counter = 0f;
         while (true)
@@ -46,6 +48,7 @@ public class TimeEnemyShoot : MonoBehaviour
         var bullet = Instantiate(bulletObject, transform.position, transform.rotation);
         bullet.GetComponent<Rigidbody2D>().velocity =
             (playerObject.transform.position - transform.position).normalized * bulletSpeed;
+        shootSound.Play();
     }
     
     private void OnDisable()

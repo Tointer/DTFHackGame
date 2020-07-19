@@ -6,6 +6,7 @@ public class SimpleEnemy : MonoBehaviour
 {
     public float shootCooldown = 2f;
     public float bulletSpeed = 1f;
+    public AudioSource shootSound;
     
     public GameObject bulletObject;
     private GameObject playerObject;
@@ -24,6 +25,7 @@ public class SimpleEnemy : MonoBehaviour
             var bullet = Instantiate(bulletObject, transform.position, transform.rotation);
             bullet.GetComponent<Rigidbody2D>().velocity =
                 (playerObject.transform.position - transform.position).normalized * bulletSpeed;
+            shootSound.Play();
             yield return new WaitForSeconds(shootCooldown);
         }
     }
