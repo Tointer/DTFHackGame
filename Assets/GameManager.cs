@@ -11,14 +11,15 @@ public class GameManager : MonoBehaviour, ICount
     public Counter counter;
     public static GameManager Instance;
     public PauseUI pauseUi;
-    public bool endGame;
+    private bool endGame;
     public AudioManager audioManager;
 
     public static bool IsFastForwarding;
     public event Action StartFastForward;
     public event Action StopFastForward;
-    
 
+
+    public bool disableStartPause;
 
     private void Update()
     {
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour, ICount
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        if (disableStartPause) return;
         PauseGame(PauseUI.MenuStates.StartPause);
         StartCoroutine(InitialPause());
     }
@@ -105,7 +107,14 @@ public class GameManager : MonoBehaviour, ICount
 
     public void OnReplayButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        StartCoroutine(LoadMyScene(SceneManager.GetActiveScene().buildIndex));
+    }
+
+    IEnumerator LoadMyScene(int buildIndex)
+    {
+        pauseUi.FadeIn(0.2f);
+        yield return new WaitForSecondsRealtime(0.2f);
+        SceneManager.LoadScene(buildIndex);
     }
 
     public void OnNextLevelButton()
@@ -113,7 +122,7 @@ public class GameManager : MonoBehaviour, ICount
         var nextSceneId = SceneManager.GetActiveScene().buildIndex + 1;
         if(nextSceneId < SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene(nextSceneId);
+            StartCoroutine(LoadMyScene(nextSceneId));
         }
         else
         {

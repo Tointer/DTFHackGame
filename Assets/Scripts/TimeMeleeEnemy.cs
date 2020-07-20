@@ -31,12 +31,12 @@ public class TimeMeleeEnemy : MonoBehaviour
         if (GameManager.IsFastForwarding)
         {
             currentAcceleration = multiplier * acceleration;
-            currentMaxSpeed = multiplier * maxSpeed;
+           // currentMaxSpeed = multiplier * maxSpeed;
         }
         else
         {
             currentAcceleration = acceleration;
-            currentMaxSpeed = maxSpeed;
+           // currentMaxSpeed = maxSpeed;
         }
         
     }
@@ -45,7 +45,7 @@ public class TimeMeleeEnemy : MonoBehaviour
     {
         while (active)
         {
-            rb.AddForce((playerObject.transform.position - transform.position).normalized * (currentAcceleration * Time.fixedDeltaTime*Time.timeScale));
+            rb.velocity = (playerObject.transform.position - transform.position).normalized * (currentAcceleration * Time.fixedDeltaTime*Time.timeScale);
             yield return null;
         }
         
@@ -59,10 +59,14 @@ public class TimeMeleeEnemy : MonoBehaviour
     
     void FixedUpdate()
     {
-        if(rb.velocity.magnitude > currentMaxSpeed)
-        {
-            rb.velocity = rb.velocity.normalized * currentMaxSpeed;
-        }
+        // if (GameManager.IsFastForwarding)
+        // {
+        //     rb.velocity *= multiplier;
+        // }
+        // else if(rb.velocity.magnitude > currentMaxSpeed)
+        // {
+        //     rb.velocity = rb.velocity.normalized * currentMaxSpeed;
+        // }
         rb.angularVelocity = 120f;
     }
 }

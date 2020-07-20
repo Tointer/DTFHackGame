@@ -591,6 +591,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 962769416589511943, guid: a215784809be485439eade9c6880d93d, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 7989948810201833112, guid: a215784809be485439eade9c6880d93d, type: 3}
       propertyPath: m_Name
       value: GameManager

@@ -52,6 +52,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\TimeMeleeEnemy.cs" />
      <Compile Include="Assets\Scripts\EscapeZone.cs" />
+     <Compile Include="Assets\EndScene.cs" />
      <Compile Include="Assets\Scripts\ICount.cs" />
      <Compile Include="Assets\StartScreenClock.cs" />
      <Compile Include="Assets\GameManager.cs" />
@@ -63,13 +64,14 @@
      <Compile Include="Assets\Scripts\AccelerateZone.cs" />
      <Compile Include="Assets\StartScreen.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\GuideUI.cs" />
+     <Compile Include="Assets\Soundtrack.cs" />
      <Compile Include="Assets\Scripts\PauseUI.cs" />
      <Compile Include="Assets\Scripts\AudioManager.cs" />
      <Compile Include="Assets\Scripts\PlayerClock.cs" />
      <Compile Include="Assets\Scripts\TimeEnemyBullet.cs" />
      <Compile Include="Assets\Scripts\SimpleEnemy.cs" />
      <Compile Include="Assets\Scripts\Counter.cs" />
-     <Compile Include="Assets\Soundtrack.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

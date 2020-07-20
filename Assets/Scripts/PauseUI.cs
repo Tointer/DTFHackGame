@@ -13,9 +13,17 @@ public class PauseUI : MonoBehaviour
     public Image darkPanel;
     public GameObject startPauseText;
 
+    public Image fadePanel;
     private Image replayButtonImage;
     
     public enum MenuStates{None, Pause, Lose, Win, StartPause}
+
+    private void Start()
+    {
+        fadePanel.color = Color.black;
+        
+        StartCoroutine(FadeOutImage(fadePanel, 0.5f));
+    }
 
     public void NewMenuState(MenuStates state)
     {
@@ -63,7 +71,7 @@ public class PauseUI : MonoBehaviour
         }
     }
 
-    IEnumerator FadeInImage(Graphic image, float duration, float targetAlpha = 1f)
+    IEnumerator FadeInImage(Graphic image, float duration, float targetAlpha = 0.999f)
     {
         if (duration <= 0 || image == null) throw new ArgumentException();
 
@@ -75,12 +83,30 @@ public class PauseUI : MonoBehaviour
             yield return null;
         }
     }
+    
+    IEnumerator FadeOutImage(Graphic image, float duration, float targetAlpha = 0.005f)
+    {
+        if (duration <= 0 || image == null) throw new ArgumentException();
+
+        while (image.color.a >= targetAlpha)
+        {
+            var color = image.color;
+            color.a = Mathf.Clamp01(color.a - Time.unscaledDeltaTime / duration);
+            image.color = color;
+            yield return null;
+        }
+    }
 
     public void HideGraphic(Graphic graphic)
     {
         var color = graphic.color;
         color.a = 0;
         graphic.color = color;
+    }
+
+    public void FadeIn(float duration)
+    {
+        StartCoroutine(FadeInImage(fadePanel, duration));
     }
 
 }
