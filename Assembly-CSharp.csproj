@@ -51,6 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\TimeMeleeEnemy.cs" />
+     <Compile Include="Assets\RotateOnTick.cs" />
      <Compile Include="Assets\Scripts\EscapeZone.cs" />
      <Compile Include="Assets\EndScene.cs" />
      <Compile Include="Assets\Scripts\ICount.cs" />
@@ -59,6 +60,7 @@
      <Compile Include="Assets\Scripts\TimeEnemyShoot.cs" />
      <Compile Include="Assets\Scripts\EnemyBullet.cs" />
      <Compile Include="Assets\Scripts\DangerZone.cs" />
+     <Compile Include="Assets\RotateEachSecond.cs" />
      <Compile Include="Assets\Scripts\MeleeEnemy.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\AccelerateZone.cs" />
@@ -72,6 +74,7 @@
      <Compile Include="Assets\Scripts\TimeEnemyBullet.cs" />
      <Compile Include="Assets\Scripts\SimpleEnemy.cs" />
      <Compile Include="Assets\Scripts\Counter.cs" />
+     <Compile Include="Assets\ClockHand.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

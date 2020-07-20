@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -19,6 +20,7 @@ public class EndScene : MonoBehaviour
 
     public Image blackPanel;
     public Image whitePanel;
+    public GameObject endText;
 
     private new Camera camera;
     void Start()
@@ -71,6 +73,8 @@ public class EndScene : MonoBehaviour
             tickSound.Play();
             yield return new WaitForSeconds(1f);
         }
+        
+        endText.SetActive(true);
 
     }
     

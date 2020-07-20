@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour, ICount
     public PauseUI pauseUi;
     private bool endGame;
     public AudioManager audioManager;
+    private static int skips = 3;
+    private bool isSkipping;
 
     public static bool IsFastForwarding;
     public event Action StartFastForward;
@@ -23,6 +25,17 @@ public class GameManager : MonoBehaviour, ICount
 
     private void Update()
     {
+        if (skips > 0 && !isSkipping && Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.L))
+        {
+            var nextSceneId = SceneManager.GetActiveScene().buildIndex + 1;
+            if(nextSceneId < SceneManager.sceneCountInBuildSettings)
+            {
+                isSkipping = true;
+                skips--;
+                StartCoroutine(LoadMyScene(nextSceneId));
+            }
+        }
+        
         if (endGame) return;
         if (Input.GetButtonUp("Jump"))
         {
@@ -70,8 +83,13 @@ public class GameManager : MonoBehaviour, ICount
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        if (disableStartPause) return;
         PauseGame(PauseUI.MenuStates.StartPause);
+
+        if (disableStartPause)
+        {
+            UnpauseGame();
+            return;
+        }
         StartCoroutine(InitialPause());
     }
 

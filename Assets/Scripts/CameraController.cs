@@ -10,12 +10,14 @@ public class CameraController : MonoBehaviour
     public Transform screenBoundaries;
     
     private Transform playerClock;
+    private Transform playerClockHand;
     private float startingSize;
     
 
     void Start()
     {
         playerClock = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerClock>().transform;
+        playerClockHand = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<ClockHand>().transform;
         camera = Camera.main;
         startingSize = camera.orthographicSize;
     }
@@ -37,6 +39,8 @@ public class CameraController : MonoBehaviour
     {
         camera.orthographicSize += value * Time.deltaTime;
         playerClock.localScale = new Vector3(camera.orthographicSize/startingSize, camera.orthographicSize/startingSize, 0);
+        playerClockHand.localScale = new Vector3(camera.orthographicSize/startingSize, camera.orthographicSize/startingSize, 0);
+        
         screenBoundaries.localScale = new Vector3(camera.orthographicSize/startingSize, camera.orthographicSize/startingSize, 0);
     }
 }
